@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oluwayanmi Stephen Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        /* Custom styles */
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 1s;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .flipbook {
+            perspective: 1000px;
+        }
+        .flipbook .card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            width: 100%;
+            height: 100%;
+        }
+        .flipbook .card:hover {
+            transform: rotateY(180deg);
+        }
+        .flipbook .card-front, .flipbook .card-back {
+            position: absolute;
+            backface-visibility: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .flipbook .card-back {
+            transform: rotateY(180deg);
+        }
+        .project-info, .blog-info {
+            display: none;
+        }
+        .project:hover .project-info, .blog:hover .blog-info {
+            display: block;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            list-style: none;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e4e4e4;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline > li {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .timeline > li:before,
+        .timeline > li:after {
+            content: ' ';
+            display: table;
+        }
+        .timeline > li:after {
+            clear: both;
+        }
+        .timeline > li .timeline-panel {
+            position: relative;
+            width: 46%;
+            float: left;
+            left: 2%;
+            padding: 20px;
+            text-align: left;
+            border-radius: 2px;
+            background: #fff;
+            border: 1px solid #d4d4d4;
+        }
+        .timeline > li .timeline-panel:before {
+            position: absolute;
+            top: 26px;
+            right: -15px;
+            display: inline-block;
+            border-top: 15px solid transparent;
+            border-left: 15px solid #d4d4d4;
+            border-right: 0 solid #d4d4d4;
+            border-bottom: 15px solid transparent;
+            content: ' ';
+        }
+        .timeline > li .timeline-panel:after {
+            position: absolute;
+            top: 27px;
+            right: -14px;
+            display: inline-block;
+            border-top: 14px solid transparent;
+            border-left: 14px solid #fff;
+            border-right: 0 solid #fff;
+            border-bottom: 14px solid transparent;
+            content: ' ';
+        }
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+            right: 2%;
+            left: 0;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+        .timeline .degree {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .timeline > li:hover .degree {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Contact Section Styles */
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 50px;
+        }
+        #contact .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        #contact .contact-info:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        #contact h3 {
+            margin-bottom: 10px;
+        }
+        #contact p {
+            margin-bottom: 0;
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            display: inline-block;
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #cbd5e0;
+        }
+        .dark-mode nav, .dark-mode footer {
+            background-color: #2d3748;
+        }
+        .dark-mode .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom CSS for article pop up */
+        .hover-popup {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hover-popup:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-popup a {
+            display: block;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .hover-popup:hover a {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .hover-popup img {
+            transition: transform 0.3s, opacity 0.3s;
+            width: 100%;
+            height: auto;
+        }
+
+        .hover-popup:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .hover-popup h3 {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .hover-popup:hover h3 {
+            transform: translateY(-10px);
+            color: #007BFF;
+        }
+
+        /* Custom CSS for SweetAlert2 */
+        .swal2-popup-custom {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .swal2-title-custom {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .swal2-content-custom {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100 text-gray-900">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-3xl font-bold">OS.</span>
+            </div>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
+                <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
+                <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
+                <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+                <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gray-50 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
+            <div class="space-x-4">
+                <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
+                <a href="/Oluwayanmi's resume.pdf" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 text-center">
+        <!-- About Me Section -->
+        <section id="about" class="py-8 fade-in">
+            <h2 class="text-2xl font-semibold">About Me</h2>
+            <p>I'm Oluwayanmi Stephen, a dedicated Computer Engineering student at Vistula University in Warsaw, Poland, originally from Nigeria. With a passion for software development, particularly in backend systems, I thrive on transforming abstract concepts into robust solutions through meticulous analysis and precise execution. Explore my portfolio to discover how I leverage my technical skills and collaborative mindset to turn ideas into tangible realities. Let's connect and discuss how I can contribute to your next project or initiative.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-8">
+            <h2 class="text-2xl font-semibold">Skills</h2>
+            <br> 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="/programming_icon.png" alt="Programming Languages" class="icon">Programming Languages</h3>
+                    <p>Python, Java, C++, C#</p>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="/backend_icon.png" alt="Backend Development" class="icon">Backend Development</h3>
+                    <p>REST APIs, Flask, Django, Spring Boot</p>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="/database_icon.png" alt="Database Technologies" class="icon">Database Technologies</h3>
+                    <p>MySQL, MongoDB, PostgreSQL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="portfolio" class="py-8">
+            <h2 class="text-2xl font-semibold">Projects</h2>
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-4 border border-gray-300 rounded-md flipbook">
+                    <div class="card">
+                        <div class="card-front bg-white p-4">
+                            <h3 class="text-xl font-bold">Customer Relation Management</h3>
+                            <br>
+                            <img src="/customer.jpg" alt="">
+                            <br>
+                            <p>Java, Spring Boot, MySQL, Vaadin</p>
+                        </div>
+                        <div class="card-back bg-gray-100 p-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>This Java application transforms customer relationship management. Imagine a central hub for all your customer interactions and data. It's a CRM powerhouse, streamlining workflows, boosting organization, and skyrocketing customer satisfaction all in one place.</p>
+                            <br>
+                            <h3><a href="https://github.com/Oly-Stephen/Customer-Relational-management-Application" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
+                        </div>                     
+                    </div>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md flipbook">
+                    <div class="card">
+                        <div class="card-front bg-white p-4">
+                            <h3 class="text-xl font-bold">Kitchen Timer</h3>
+                            <br>
+                            <img src="/kitchen_timer.png" alt="">
+                            <br>
+                            <p>C++, Adruino Tinkercad</p>
+                        </div>
+                        <div class="card-back bg-gray-100 p-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>This Arduino program creates a user-friendly kitchen timer with an alarm system, allowing you to set and track cooking times with ease through a buttons, complete with a buzzer to alert you when time is up.</p>
+                            <br>
+                            <h3><a href="https://github.com/Oly-Stephen/Arduino-kitchen-timer" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md flipbook">
+                    <div class="card">
+                        <div class="card-front bg-white p-4">
+                            <h3 class="text-xl font-bold">Idea</h3>
+                            <br>
+                            <img src="/todo_UI.png" alt="">
+                            <br>
+                            <p>Java, Spring Boot, PostgreSQL</p>
+                        </div>
+                        <div class="card-back bg-gray-100 p-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>This Java application empowers you to become a productivity powerhouse. Capture your ideas the moment inspiration strikes, then seamlessly transition from brainstorming to action. Track your progress as you tackle your tasks, ensuring you stay focused and achieve your goals.</p>
+                            <br>
+                            <h3><a href="https://github.com/Oly-Stephen/Idea" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+       <!-- Timeline Section -->
+       <section id="timeline" class="py-8">
+        <h2 class="text-2xl font-semibold">Education and Certificate</h2>
+        <br>
+        <ul class="timeline">
+            <li class="slide-in">
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h3 class="timeline-title"><strong>Feb 2024 - Till date</strong></h3>
+                        <p>Bachelor of Computer Engineering at Vistula University, Warsaw, Poland.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted slide-in">
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h3 class="timeline-title"><strong>Sep 2021 - July 2023</strong></h3>
+                        <p>Bachelor of Information Technology Software at Yanka Kupala State University, Grodno, Belarus.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="slide-in">
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h3 class="timeline-title"><strong>June 2024</strong></h3>
+                        <p> Certificate - Building Real-Time REST APIs with Spring Boot - Udemy</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Article Section -->
+    <section id="blog" class="py-8">
+        <h2 class="text-2xl font-semibold">Articles</h2>
+        <br>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
+                <a href="https://medium.com/cub3d/unleashing-the-fun-in-programming-1abafae818ca" target="_blank">
+                    <h3 class="text-xl font-bold">Unleashing the Fun in Programming</h3>
+                    <img src="/image1" alt="">
+                </a>
+            </div>
+            <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
+                <a href="https://medium.com/new-writers-welcome/4-risks-you-should-take-as-a-developer-2617236da5ba" target="_blank">
+                    <h3 class="text-xl font-bold">4 Risks You Should Take as a Developer</h3>
+                    <img src="/image2" alt="">
+                </a>
+            </div>
+            <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
+                <a href="https://medium.com/@stephenoluwayanmi/10-tips-for-writing-clean-and-efficient-code-d22665dc9029" target="_blank">
+                    <h3 class="text-xl font-bold">10 Tips for Writing Clean and Efficient Code</h3>
+                    <img src="/image3" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-8 text-white">
+        <h2 class="text-2xl font-semibold">Contact</h2>
+        <br>
+        <br>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="contact-info">
+                <h3><strong>Email</strong></h3>
+                <p id="email" class="cursor-pointer">stephenoluwayanmi@gmail.com</p>
+            </div>
+            <div class="contact-info">
+                <h3><strong>Phone</strong></h3>
+                <p id="phone" class="cursor-pointer">+48 123 456 789</p>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md py-4">
+        <div class="container mx-auto text-center text-gray-600">
+            <p>&copy; 2024 Oluwayanmi Stephen. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<!-- Add SweetAlert2 Script -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<script>
+    // Function to copy text to clipboard
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Copied to Clipboard!',
+                text: `You have successfully copied: ${text}`,
+                background: '#f9fafb',
+                color: '#333',
+                iconColor: '#4CAF50',
+                showConfirmButton: false,
+                timer: 2000,
+                customClass: {
+                    popup: 'swal2-popup-custom',
+                    title: 'swal2-title-custom',
+                    content: 'swal2-content-custom'
+                }
+            });
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+
+    // Add event listeners to email and phone elements
+    document.getElementById('email').addEventListener('click', function() {
+        copyToClipboard(this.textContent);
+    });
+
+    document.getElementById('phone').addEventListener('click', function() {
+        copyToClipboard(this.textContent);
+    });
+</script>
+
