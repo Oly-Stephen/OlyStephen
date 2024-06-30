@@ -22,33 +22,55 @@
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        .flipbook {
-            perspective: 1000px;
+        /* .flipbook {
+        perspective: 1000px;
         }
-        .flipbook .card {
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
             transform-style: preserve-3d;
             transition: transform 0.6s;
-            width: 100%;
-            height: 100%;
         }
-        .flipbook .card:hover {
-            transform: rotateY(180deg);
-        }
-        .flipbook .card-front, .flipbook .card-back {
+        .card-front, .card-back {
             position: absolute;
-            backface-visibility: hidden;
             width: 100%;
-            height: 100%;
+            backface-visibility: hidden;
         }
-        .flipbook .card-back {
+        .card-back {
             transform: rotateY(180deg);
         }
-        .project-info, .blog-info {
+        .flipbook:hover .card {
+            transform: rotateY(180deg);
+        } */
+        /* .project-info, .blog-info {
             display: none;
         }
         .project:hover .project-info, .blog:hover .blog-info {
             display: block;
+        } */
+
+        /* project section styles */
+        
+        .p-4 {
+        margin-bottom: 1rem; /* Add space between the cards */
         }
+        .rounded-md {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better separation */
+        }
+        img {
+            display: block; /* Ensures that images do not cause overflow */
+            max-width: 100%;
+            height: auto; /* Keeps the aspect ratio */
+        }
+        .mt-4 {
+            margin-top: 1rem; /* Consistent spacing */
+        }
+        .shadow-md {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+        }
+
+
         .timeline {
             position: relative;
             padding: 20px 0;
@@ -162,16 +184,6 @@
             margin-right: 8px;
             display: inline-block;
         }
-        .dark-mode {
-            background-color: #1a202c;
-            color: #cbd5e0;
-        }
-        .dark-mode nav, .dark-mode footer {
-            background-color: #2d3748;
-        }
-        .dark-mode .contact-info {
-            background: rgba(255, 255, 255, 0.1);
-        }
 
         /* Custom CSS for article pop up */
         .hover-popup {
@@ -274,15 +286,15 @@
             <br> 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="p-4 border border-gray-300 rounded-md">
-                    <h3 class="text-xl font-bold flex items-center"><img src="/programming_icon.png" alt="Programming Languages" class="icon">Programming Languages</h3>
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/programming_icon.png" alt="Programming Languages" class="icon">Programming Languages</h3>
                     <p>Python, Java, C++, C#</p>
                 </div>
                 <div class="p-4 border border-gray-300 rounded-md">
-                    <h3 class="text-xl font-bold flex items-center"><img src="/backend_icon.png" alt="Backend Development" class="icon">Backend Development</h3>
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/backend_icon.png" alt="Backend Development" class="icon">Backend Development</h3>
                     <p>REST APIs, Flask, Django, Spring Boot</p>
                 </div>
                 <div class="p-4 border border-gray-300 rounded-md">
-                    <h3 class="text-xl font-bold flex items-center"><img src="/database_icon.png" alt="Database Technologies" class="icon">Database Technologies</h3>
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/database_icon.png" alt="Database Technologies" class="icon">Database Technologies</h3>
                     <p>MySQL, MongoDB, PostgreSQL</p>
                 </div>
             </div>
@@ -290,60 +302,86 @@
 
         <!-- Projects Section -->
         <section id="portfolio" class="py-8">
-            <h2 class="text-2xl font-semibold">Projects</h2>
-            <br>
+            <h2 class="text-2xl font-semibold text-center mb-6">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="p-4 border border-gray-300 rounded-md flipbook">
-                    <div class="card">
-                        <div class="card-front bg-white p-4">
-                            <h3 class="text-xl font-bold">Customer Relation Management</h3>
-                            <br>
-                            <img src="/customer.jpg" alt="">
-                            <br>
-                            <p>Java, Spring Boot, MySQL, Vaadin</p>
-                        </div>
-                        <div class="card-back bg-gray-100 p-4">
+                <!-- Project 1 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Customer Relation Management</h3>
+                        <img src="images/customer.jpg" alt="Customer Relation Management" class="my-4 w-full h-auto">
+                        <p>Java, Spring Boot, MySQL, Vaadin</p>
+                        <div class="mt-4">
                             <h3 class="text-xl font-bold">Description</h3>
                             <p>This Java application transforms customer relationship management. Imagine a central hub for all your customer interactions and data. It's a CRM powerhouse, streamlining workflows, boosting organization, and skyrocketing customer satisfaction all in one place.</p>
-                            <br>
-                            <h3><a href="https://github.com/Oly-Stephen/Customer-Relational-management-Application" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
-                        </div>                     
+                            <a href="https://github.com/Oly-Stephen/Customer-Relational-management-Application" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
+                        </div>
                     </div>
                 </div>
-                <div class="p-4 border border-gray-300 rounded-md flipbook">
-                    <div class="card">
-                        <div class="card-front bg-white p-4">
-                            <h3 class="text-xl font-bold">Kitchen Timer</h3>
-                            <br>
-                            <img src="/kitchen_timer.png" alt="">
-                            <br>
-                            <p>C++, Adruino Tinkercad</p>
-                        </div>
-                        <div class="card-back bg-gray-100 p-4">
+                <!-- Project 2 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Kitchen Timer</h3>
+                        <img src="images/kitchen_timer.png" alt="Kitchen Timer" class="my-4 w-full h-auto">
+                        <p>C++, Arduino Tinkercad</p>
+                        <div class="mt-4">
                             <h3 class="text-xl font-bold">Description</h3>
                             <p>This Arduino program creates a user-friendly kitchen timer with an alarm system, allowing you to set and track cooking times with ease through a buttons, complete with a buzzer to alert you when time is up.</p>
-                            <br>
-                            <h3><a href="https://github.com/Oly-Stephen/Arduino-kitchen-timer" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
+                            <a href="https://github.com/Oly-Stephen/Arduino-kitchen-timer" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="p-4 border border-gray-300 rounded-md flipbook">
-                    <div class="card">
-                        <div class="card-front bg-white p-4">
-                            <h3 class="text-xl font-bold">Idea</h3>
-                            <br>
-                            <img src="/todo_UI.png" alt="">
-                            <br>
-                            <p>Java, Spring Boot, PostgreSQL</p>
-                        </div>
-                        <div class="card-back bg-gray-100 p-4">
+                <!-- Project 3 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Idea</h3>
+                        <img src="images/todo_UI.png" alt="Idea" class="my-4 w-full h-auto">
+                        <p>Java, Spring Boot, PostgreSQL</p>
+                        <div class="mt-4">
                             <h3 class="text-xl font-bold">Description</h3>
                             <p>This Java application empowers you to become a productivity powerhouse. Capture your ideas the moment inspiration strikes, then seamlessly transition from brainstorming to action. Track your progress as you tackle your tasks, ensuring you stay focused and achieve your goals.</p>
-                            <br>
-                            <h3><a href="https://github.com/Oly-Stephen/Idea" target="_blank" class="text-purple-600 hover:text-purple-800"><strong>GitHub</strong></a></h3>
+                            <a href="https://github.com/Oly-Stephen/Idea" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
                         </div>
                     </div>
-                </div>  
+                </div>
+                <!-- Project 4 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Project 4 Title</h3>
+                        <img src="images/customer.jpg" alt="Project 4" class="my-4 w-full h-auto">
+                        <p>Technologies Used</p>
+                        <div class="mt-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>Description of the fourth project goes here.</p>
+                            <a href="https://github.com/Oly-Stephen/Project4" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Project 5 Title</h3>
+                        <img src="images/customer.jpg" alt="Project 5" class="my-4 w-full h-auto">
+                        <p>Technologies Used</p>
+                        <div class="mt-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>Description of the fifth project goes here.</p>
+                            <a href="https://github.com/Oly-Stephen/Project5" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="text-xl font-bold">Project 6 Title</h3>
+                        <img src="images/customer.jpg" alt="Project 6" class="my-4 w-full h-auto">
+                        <p>Technologies Used</p>
+                        <div class="mt-4">
+                            <h3 class="text-xl font-bold">Description</h3>
+                            <p>Description of the sixth project goes here.</p>
+                            <a href="https://github.com/Oly-Stephen/Project6" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <br>
@@ -399,19 +437,19 @@
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/cub3d/unleashing-the-fun-in-programming-1abafae818ca" target="_blank">
                     <h3 class="text-xl font-bold">Unleashing the Fun in Programming</h3>
-                    <img src="/image1" alt="">
+                    <img src="images/image1" alt="">
                 </a>
             </div>
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/new-writers-welcome/4-risks-you-should-take-as-a-developer-2617236da5ba" target="_blank">
                     <h3 class="text-xl font-bold">4 Risks You Should Take as a Developer</h3>
-                    <img src="/image2" alt="">
+                    <img src="images/image2" alt="">
                 </a>
             </div>
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/@stephenoluwayanmi/10-tips-for-writing-clean-and-efficient-code-d22665dc9029" target="_blank">
                     <h3 class="text-xl font-bold">10 Tips for Writing Clean and Efficient Code</h3>
-                    <img src="/image3" alt="">
+                    <img src="images/image3" alt="">
                 </a>
             </div>
         </div>
