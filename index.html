@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         /* Custom styles */
+        @media (min-width: 768px) {
+        .text-center h1 {
+            line-height: 1.2;
+        }
+    }
         .fade-in {
             animation: fadeIn 2s;
         }
@@ -22,36 +27,36 @@
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        /* .flipbook {
-        perspective: 1000px;
-        }
-        .card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            backface-visibility: hidden;
-        }
-        .card-back {
-            transform: rotateY(180deg);
-        }
-        .flipbook:hover .card {
-            transform: rotateY(180deg);
-        } */
-        /* .project-info, .blog-info {
-            display: none;
-        }
-        .project:hover .project-info, .blog:hover .blog-info {
-            display: block;
-        } */
 
-        /* project section styles */
-        
+        /* Navigation bar responsive styles */
+        .hidden {
+        display: none;
+        }
+        .flex {
+            display: flex;
+        }
+        .flex-col {
+            flex-direction: column;
+        }
+        .space-y-4 > :not(:first-child) {
+            margin-top: 1rem;
+        }
+        .space-x-4 > :not(:first-child) {
+            margin-left: 1rem;
+        }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        /* project section  */
         .p-4 {
         margin-bottom: 1rem; /* Add space between the cards */
         }
@@ -250,7 +255,27 @@
             <div class="flex items-center">
                 <span class="text-3xl font-bold">OS.</span>
             </div>
-            <ul class="flex space-x-4">
+            <div class="hidden md:flex space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
+                    <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
+                    <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
+                    <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+                    <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col space-y-4 mt-4 px-4">
                 <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
                 <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
                 <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
@@ -261,18 +286,16 @@
             </ul>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <header class="bg-gray-50 py-20">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
-            <div class="space-x-4">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
+            <div class="space-y-4 md:space-y-0 md:space-x-4">
                 <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
                 <a href="/Oluwayanmi's resume.pdf" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
             </div>
         </div>
     </header>
-
     <div class="container mx-auto p-4 text-center">
         <!-- About Me Section -->
         <section id="about" class="py-8 fade-in">
@@ -456,22 +479,23 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-8 text-white">
-        <h2 class="text-2xl font-semibold">Contact</h2>
-        <br>
-        <br>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="contact-info">
-                <h3><strong>Email</strong></h3>
-                <p id="email" class="cursor-pointer">stephenoluwayanmi@gmail.com</p>
-            </div>
-            <div class="contact-info">
-                <h3><strong>Phone</strong></h3>
-                <p id="phone" class="cursor-pointer">+48 123 456 789</p>
+    <section id="contact" class="py-8 text-white bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-center md:text-left">Contact</h2>
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="contact-info">
+                    <h3 class="text-xl"><strong>Email</strong></h3>
+                    <p id="email" class="cursor-pointer break-words">example@example.com</p>
+                </div>
+                <div class="contact-info">
+                    <h3 class="text-xl"><strong>Phone</strong></h3>
+                    <p id="phone" class="cursor-pointer break-words">+48 123 456 789</p>
+                </div>
             </div>
         </div>
     </section>
-    </div>
+
 
     <!-- Footer -->
     <footer class="bg-white shadow-md py-4">
@@ -517,6 +541,16 @@
 
     document.getElementById('phone').addEventListener('click', function() {
         copyToClipboard(this.textContent);
+    });
+
+    // Hamburger menu scripts for navigation bar
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
     });
 </script>
 
