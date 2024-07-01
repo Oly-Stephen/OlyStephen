@@ -14,6 +14,40 @@
         }
     }
 
+    /* contact */
+    .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-info:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #93c5fd; /* Light blue color */
+        }
+
+        .contact-icon {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-link:hover .contact-icon {
+            transform: scale(1.2);
+        }
+
      /* Custom styles for the hamburger menu */
      .menu-btn {
             position: relative;
@@ -317,7 +351,7 @@
                 <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
                 <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
-                <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+                <li><a href="images/Oluwayanmi's resume.jpg" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
                 <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
             </ul>
         </div>
@@ -334,7 +368,7 @@
             <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
             <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
             <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
-            <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+            <li><a href="images/Oluwayanmi's resume.jpg" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
             <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
         </ul>
     </div>
@@ -346,7 +380,7 @@
             <h1 class="text-3xl md:text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
             <div class="space-y-4 md:space-y-0 md:space-x-4">
                 <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
-                <a href="images/Oluwayanmi's resume.pdf" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
+                <a href="images/Oluwayanmi's resume.jpg" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
             </div>
         </div>
     </header>
@@ -521,21 +555,32 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-8 text-white bg-gray-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-semibold text-center md:text-left">Contact</h2>
-            <br>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="contact-info">
-                    <h3 class="text-xl"><strong>Email</strong></h3>
-                    <p id="email" class="cursor-pointer break-words">example@example.com</p>
-                </div>
-                <div class="contact-info">
-                    <h3 class="text-xl"><strong>Phone</strong></h3>
-                    <p id="phone" class="cursor-pointer break-words">+48 123 456 789</p>
-                </div>
+<section id="contact" class="py-8">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center">Contact</h2>
+        <br>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="contact-info">
+                <h3 class="text-xl"><strong>Email</strong></h3>
+                <a href="mailto:example@example.com" class="contact-link">
+                    <svg class="contact-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4m8-12v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2z"></path>
+                    </svg>
+                    <p id="email" class="break-words">stephenoluwayanmi@gmail.com</p>
+                </a>
+            </div>
+            <div class="contact-info">
+                <h3 class="text-xl"><strong>Phone</strong></h3>
+                <a href="tel:+48123456789" class="contact-link">
+                    <svg class="contact-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a1 1 0 011-1h2.4a1 1 0 011 .8l1.1 5.3a1 1 0 01-.3.9l-2.5 2.5a16.015 16.015 0 007.5 7.5l2.5-2.5a1 1 0 01.9-.3l5.3 1.1a1 1 0 01.8 1V21a1 1 0 01-1 1H16a16 16 0 01-13-13V4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"></path>
+                    </svg>
+                    <p id="phone" class="break-words">+48 123 456 789</p>
+                </a>
             </div>
         </div>
+    </div>
+</section>
     </section>
     <br>
 
