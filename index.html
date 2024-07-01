@@ -13,6 +13,64 @@
             line-height: 1.2;
         }
     }
+
+     /* Custom styles for the hamburger menu */
+     .menu-btn {
+            position: relative;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-btn span, .menu-btn::before, .menu-btn::after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            background-color: #333;
+            transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, opacity 0.3s ease;
+        }
+
+        .menu-btn::before, .menu-btn::after {
+            left: 0;
+        }
+
+        .menu-btn::before {
+            top: 0;
+        }
+
+        .menu-btn span {
+            top: 9px;
+        }
+
+        .menu-btn::after {
+            bottom: 0;
+        }
+
+        .menu-btn.open span {
+            opacity: 0;
+        }
+
+        .menu-btn.open::before {
+            top: 9px;
+            transform: rotate(45deg);
+        }
+
+        .menu-btn.open::after {
+            bottom: 9px;
+            transform: rotate(-45deg);
+        }
+
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.open {
+            max-height: 300px;
+        }
         .fade-in {
             animation: fadeIn 2s;
         }
@@ -29,9 +87,6 @@
         }
 
         /* Navigation bar responsive styles */
-        .hidden {
-        display: none;
-        }
         .flex {
             display: flex;
         }
@@ -249,33 +304,14 @@
     </style>
 </head>
 <body class="font-sans bg-gray-100 text-gray-900">
-    <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <span class="text-3xl font-bold">OS.</span>
-            </div>
-            <div class="hidden md:flex space-x-4">
-                <ul class="flex space-x-4">
-                    <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
-                    <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
-                    <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
-                    <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
-                    <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
-                    <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
+<!-- Navigation Bar -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <span class="text-3xl font-bold">OS.</span>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="flex flex-col space-y-4 mt-4 px-4">
+        <div class="hidden md:flex space-x-4">
+            <ul class="flex space-x-4">
                 <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
                 <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
                 <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
@@ -285,14 +321,32 @@
                 <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
             </ul>
         </div>
-    </nav>
+        <div class="md:hidden">
+            <div id="menu-btn" class="menu-btn">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="flex flex-col space-y-4 mt-4 px-4">
+            <li><a href="#home" class="text-gray-700 hover:text-blue-500">Home</a></li>
+            <li><a href="#about" class="text-gray-700 hover:text-blue-500">About</a></li>
+            <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
+            <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
+            <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
+            <li><a href="/Oluwayanmi's resume.pdf" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+            <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
+        </ul>
+    </div>
+</nav>
+
     <!-- Hero Section -->
     <header class="bg-gray-50 py-20">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-3xl md:text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
             <div class="space-y-4 md:space-y-0 md:space-x-4">
                 <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
-                <a href="/Oluwayanmi's resume.pdf" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
+                <a href="images/Oluwayanmi's resume.pdf" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
             </div>
         </div>
     </header>
@@ -407,18 +461,6 @@
                 </div>
             </div>
         </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
        <!-- Timeline Section -->
        <section id="timeline" class="py-8">
@@ -495,6 +537,7 @@
             </div>
         </div>
     </section>
+    <br>
 
 
     <!-- Footer -->
@@ -543,14 +586,13 @@
         copyToClipboard(this.textContent);
     });
 
-    // Hamburger menu scripts for navigation bar
-    document.getElementById('menu-btn').addEventListener('click', function() {
-        var mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.remove('hidden');
-        } else {
-            mobileMenu.classList.add('hidden');
-        }
+    <!-- JavaScript for toggling the mobile menu -->
+    document.getElementById('menu-btn').addEventListener('click', function () {
+        var menu = document.getElementById('mobile-menu');
+        var btn = document.getElementById('menu-btn');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('open');
+        btn.classList.toggle('open');
     });
 </script>
 
