@@ -582,11 +582,8 @@
         copyToClipboard(this.textContent);
     });
 
-    document.getElementById('phone').addEventListener('click', function() {
-        copyToClipboard(this.textContent);
-    });
 
-    <!-- JavaScript for toggling the mobile menu -->
+    // Hamburger toggle for mobile
     document.getElementById('menu-btn').addEventListener('click', function () {
         var menu = document.getElementById('mobile-menu');
         var btn = document.getElementById('menu-btn');
@@ -594,4 +591,6 @@
         menu.classList.toggle('open');
         btn.classList.toggle('open');
     });
+
+
 </script>
