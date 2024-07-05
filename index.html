@@ -293,33 +293,34 @@
 
         .hover-popup a {
             display: block;
-            transition: transform 0.3s, opacity 0.3s;
+            transition: opacity 0.3s;
         }
 
         .hover-popup:hover a {
-            transform: scale(1.05);
             opacity: 0.9;
         }
 
-        .hover-popup img {
+        .article-image {
             transition: transform 0.3s, opacity 0.3s;
             width: 100%;
             height: auto;
+            display: block;
+            margin: 0 auto 1rem;
         }
 
-        .hover-popup:hover img {
+        .hover-popup:hover .article-image {
             transform: scale(1.1);
             opacity: 0.8;
         }
 
         .hover-popup h3 {
-            transition: transform 0.3s, color 0.3s;
+            transition: color 0.3s;
         }
 
         .hover-popup:hover h3 {
-            transform: translateY(-10px);
             color: #007BFF;
         }
+
 
         /* Custom CSS for SweetAlert2 */
         .swal2-popup-custom {
@@ -342,7 +343,7 @@
 <nav class="bg-white shadow-md">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <div class="flex items-center">
-            <span class="text-3xl font-bold">OS.</span>
+            <span class="text-3xl font-bold"><a href="#home">OS.</a></span>
         </div>
         <div class="hidden md:flex space-x-4">
             <ul class="flex space-x-4">
@@ -454,45 +455,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 4 -->
-                <div class="p-4 border border-gray-300 rounded-md">
-                    <div class="bg-white p-4 rounded-md shadow-md">
-                        <h3 class="text-xl font-bold">Project 4 Title</h3>
-                        <img src="images/customer.jpg" alt="Project 4" class="my-4 w-full h-auto">
-                        <p>Technologies Used</p>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold">Description</h3>
-                            <p>Description of the fourth project goes here.</p>
-                            <a href="https://github.com/Oly-Stephen/Project4" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <div class="p-4 border border-gray-300 rounded-md">
-                    <div class="bg-white p-4 rounded-md shadow-md">
-                        <h3 class="text-xl font-bold">Project 5 Title</h3>
-                        <img src="images/customer.jpg" alt="Project 5" class="my-4 w-full h-auto">
-                        <p>Technologies Used</p>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold">Description</h3>
-                            <p>Description of the fifth project goes here.</p>
-                            <a href="https://github.com/Oly-Stephen/Project5" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6 -->
-                <div class="p-4 border border-gray-300 rounded-md">
-                    <div class="bg-white p-4 rounded-md shadow-md">
-                        <h3 class="text-xl font-bold">Project 6 Title</h3>
-                        <img src="images/customer.jpg" alt="Project 6" class="my-4 w-full h-auto">
-                        <p>Technologies Used</p>
-                        <div class="mt-4">
-                            <h3 class="text-xl font-bold">Description</h3>
-                            <p>Description of the sixth project goes here.</p>
-                            <a href="https://github.com/Oly-Stephen/Project6" target="_blank" class="text-purple-600 hover:text-purple-800 font-bold mt-4 inline-block">GitHub</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -535,55 +497,42 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/cub3d/unleashing-the-fun-in-programming-1abafae818ca" target="_blank">
+                    <img src="images/image1" alt="" class="article-image">
                     <h3 class="text-xl font-bold">Unleashing the Fun in Programming</h3>
-                    <img src="images/image1" alt="">
                 </a>
             </div>
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/new-writers-welcome/4-risks-you-should-take-as-a-developer-2617236da5ba" target="_blank">
+                    <img src="images/image2" alt="" class="article-image">
                     <h3 class="text-xl font-bold">4 Risks You Should Take as a Developer</h3>
-                    <img src="images/image2" alt="">
                 </a>
             </div>
             <div class="p-4 border border-gray-300 rounded-md slide-in hover-popup">
                 <a href="https://medium.com/@stephenoluwayanmi/10-tips-for-writing-clean-and-efficient-code-d22665dc9029" target="_blank">
+                    <img src="images/image3" alt="" class="article-image">
                     <h3 class="text-xl font-bold">10 Tips for Writing Clean and Efficient Code</h3>
-                    <img src="images/image3" alt="">
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-<section id="contact" class="py-8">
-    <div class="container mx-auto px-4">
-        <h2 class="text-2xl font-semibold text-center">Contact</h2>
-        <br>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="contact-info">
-                <h3 class="text-xl"><strong>Email</strong></h3>
-                <a href="mailto:example@example.com" class="contact-link">
-                    <svg class="contact-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4m8-12v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2z"></path>
-                    </svg>
-                    <p id="email" class="break-words">stephenoluwayanmi@gmail.com</p>
-                </a>
-            </div>
-            <div class="contact-info">
-                <h3 class="text-xl"><strong>Phone</strong></h3>
-                <a href="tel:+48123456789" class="contact-link">
-                    <svg class="contact-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a1 1 0 011-1h2.4a1 1 0 011 .8l1.1 5.3a1 1 0 01-.3.9l-2.5 2.5a16.015 16.015 0 007.5 7.5l2.5-2.5a1 1 0 01.9-.3l5.3 1.1a1 1 0 01.8 1V21a1 1 0 01-1 1H16a16 16 0 01-13-13V4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"></path>
-                    </svg>
-                    <p id="phone" class="break-words">+48 123 456 789</p>
-                </a>
+    <section id="contact" class="py-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-center">Contact</h2>
+            <br>
+            <div class="flex justify-center">
+                <div class="contact-info text-center">
+                    <h3 class="text-xl"><strong>Email</strong></h3>
+                    <a href="mailto:example@example.com" class="contact-link">
+                        <p id="email" class="break-words">stephenoluwayanmi@gmail.com</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
     </section>
-    <br>
 
+    <br>
 
     <!-- Footer -->
     <footer class="bg-white shadow-md py-4">
