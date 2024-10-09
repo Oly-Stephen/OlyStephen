@@ -376,9 +376,24 @@
             color: #555;
         }
     </style>
+<!-- Custom CSS for SweetAlert2 -->
+<style>
+    .swal2-popup-custom {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .swal2-title-custom {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+    .swal2-content-custom {
+        font-size: 1rem;
+        color: #555;
+    }
+</style>
 </head>
 <div class="flex justify-center">
-
 </div>
 <body class="font-sans bg-gray-100 text-gray-900">
 <!-- Navigation Bar -->
@@ -394,7 +409,7 @@
                 <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
                 <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
-                <li><a href="https://drive.google.com/file/d/1XO0XEB18sf4ZEq3djxBLBuOHxLAOihQP/view?usp=drive_link" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+                <li><a href="https://drive.google.com/file/d/1Qye8gX6M44jH5ICITvDG4r5n9plAN6jZ/view?usp=sharing" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
                 <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
                 <li><a href="https://github.com/Oly-Stephen/" target="_blank" class="text-gray-700 hover:text-blue-500">Github</a></li>
             </ul>
@@ -412,58 +427,73 @@
             <li><a href="#portfolio" class="text-gray-700 hover:text-blue-500">Projects</a></li>
             <li><a href="#blog" class="text-gray-700 hover:text-blue-500">Blog</a></li>
             <li><a href="#contact" class="text-gray-700 hover:text-blue-500">Contact</a></li>
-            <li><a href="https://drive.google.com/file/d/1XO0XEB18sf4ZEq3djxBLBuOHxLAOihQP/view?usp=drive_link" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
+            <li><a href="https://drive.google.com/file/d/1Qye8gX6M44jH5ICITvDG4r5n9plAN6jZ/view?usp=sharing" target="_blank" class="text-gray-700 hover:text-blue-500">Resume</a></li>
             <li><a href="https://www.linkedin.com/in/oluwayanmi-stephen-42161a1ab/" target="_blank" class="text-gray-700 hover:text-blue-500">LinkedIn</a></li>
         </ul>
     </div>
 </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-gray-50 py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
-            <div class="space-y-4 md:space-y-0 md:space-x-4">
-                <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
-                <a href="https://drive.google.com/file/d/1XO0XEB18sf4ZEq3djxBLBuOHxLAOihQP/view?usp=drive_link" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
-            </div>
+<!-- Hero Section -->
+<header class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Hi! I'm Oluwayanmi, I love solving problems one line of code at a time.</h1>
+        <div class="space-y-4 md:space-y-0 md:space-x-4">
+            <a href="#contact" class="bg-purple-500 text-white px-6 py-3 rounded-md inline-block">Let's Talk</a>
+            <a href="https://drive.google.com/file/d/1Qye8gX6M44jH5ICITvDG4r5n9plAN6jZ/view?usp=sharing" target="b" class="bg-white text-gray-700 px-6 py-3 rounded-md border border-gray-300 inline-block">Resume</a>
         </div>
-    </header>
-    <div class="container mx-auto p-4 text-center">
-        <!-- About Me Section -->
-        <section id="about" class="py-8 fade-in">
-            <h2 class="text-2xl font-semibold">About Me</h2>
-            <p>I'm Oluwayanmi Stephen, a dedicated Computer Engineering student at Vistula University in Warsaw, Poland, originally from Nigeria. With a passion for software development, particularly in backend systems, I thrive on transforming abstract concepts into robust solutions through meticulous analysis and precise execution. Explore my portfolio to discover how I leverage my technical skills and collaborative mindset to turn ideas into tangible realities. Let's connect and discuss how I can contribute to your next project or initiative.</p>
-        </section>
+    </div>
+</header>
+<div class="container mx-auto p-4 text-center">
+    <!-- About Me Section -->
+    <section id="about" class="py-8 fade-in">
+        <h2 class="text-2xl font-semibold">About Me</h2>
+        <p>I'm Oluwayanmi Stephen, a dedicated Computer Engineering student at Vistula University in Warsaw, Poland, originally from Nigeria. With a passion for software development, particularly in backend systems, I thrive on transforming abstract concepts into robust solutions through meticulous analysis and precise execution. Explore my portfolio to discover how I leverage my technical skills and collaborative mindset to turn ideas into tangible realities. Let's connect and discuss how I can contribute to your next project or initiative.</p>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-8">
-            <h2 class="text-2xl font-semibold">Skills</h2>
-            <br> 
-            <div class="flex justify-center">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="p-4 border border-gray-300 rounded-md">
-                        <h3 class="text-xl font-bold flex items-center"><img src="images/programming_icon.png" alt="Programming Languages" class="icon">Programming Languages</h3>
-                        <p>Python, Java, C++, C#</p>
-                    </div>
-                    <div class="p-4 border border-gray-300 rounded-md">
-                        <h3 class="text-xl font-bold flex items-center"><img src="images/backend_icon.png" alt="Backend Development" class="icon">Backend Development</h3>
-                        <p>REST APIs, Flask, Django, Spring Boot</p>
-                    </div>
-                    <div class="p-4 border border-gray-300 rounded-md">
-                        <h3 class="text-xl font-bold flex items-center"><img src="images/database_icon.png" alt="Database Technologies" class="icon">Database Technologies</h3>
-                        <p>MySQL, MongoDB, PostgreSQL</p>
-                    </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-8">
+        <h2 class="text-2xl font-semibold">Skills</h2>
+        <br> 
+        <div class="flex justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/programming_icon.png" alt="Programming Languages" class="icon">Programming Languages</h3>
+                    <p>Python, Java, Javascript</p>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/backend_icon.png" alt="Backend Development" class="icon">Backend Development</h3>
+                    <p>Spring Boot, REST APIs, FastAPI </p>
+                </div>
+                <div class="p-4 border border-gray-300 rounded-md">
+                    <h3 class="text-xl font-bold flex items-center"><img src="images/database_icon.png" alt="Database Technologies" class="icon">Database Technologies</h3>
+                    <p>MySQL, MongoDB, PostgreSQL</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section with Vertical Steps -->
-        <section id="experience" class="py-8 bg-white shadow-md rounded-lg">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-semibold text-center mb-6">Experience</h2>
-                <div class="vertical-steps">
+    <!-- Experience Section with Vertical Steps -->
+    <section id="experience" class="py-8 bg-white shadow-md rounded-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-center mb-6">Experience</h2>
+            <div class="vertical-steps">
+                <!-- New Experience: Java Backend Developer -->
                     <div class="step">
-                        <div class="step-content bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="step-content bg-gray-50 p-6 rounded-lg shadow-sm text-left">
+                            <h2 class="text-xl font-bold mb-2"><span class="highlight">Java Backend Developer (Contract)</span></h2>
+                            <p class="text-gray-700 mb-4"><i class="fas fa-map-marker-alt text-purple-500"></i> Tcompactify Company, Nigeria. Aug 2023 - May 2024</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4 flex flex-col gap-2">
+                                <li class="flex items-center"><span class="flex-shrink-0">•</span><span class="ml-2">Developed end-to-end backend solutions: Built and maintained comprehensive Java-based backend systems for key clients, including a FinTech platform that processed over 2,500 daily transactions efficiently, with a focus on reliability and performance.</span></li>
+                                <li class="flex items-center"><span class="flex-shrink-0">•</span><span class="ml-2">Authored comprehensive technical documentation for API endpoints, contributing to improved integration efficiency for developers.</span></li>
+                                <li class="flex items-center"><span class="flex-shrink-0">•</span><span class="ml-2">Collaborated with front-end teams to optimize API response time to under 300ms, leading to a 5% increase in client satisfaction.</span></li>
+                                <li class="flex items-center"><span class="flex-shrink-0">•</span><span class="ml-2">Optimized backend performance: Enhanced server-side logic and optimized database queries, leading to a 20% improvement in application response time, ensuring a smooth user experience under heavy traffic conditions.</span></li>
+                                <li class="flex items-center"><span class="flex-shrink-0">•</span><span class="ml-2">Enhanced security through role-based access control (RBAC), customizing roles for Admin and authenticated users to ensure data integrity.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Existing Experience: Graphic Designer -->
+                    <div class="step">
+                        <div class="step-content bg-gray-50 p-6 rounded-lg shadow-sm text-left">
                             <h2 class="text-xl font-bold mb-2"><span class="highlight">Graphic Designer</span></h2>
                             <p class="text-gray-700 mb-4"><i class="fas fa-map-marker-alt text-purple-500"></i> Living Proof Press Ltd, Nigeria.</p>
                             <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4 flex flex-col gap-2">
